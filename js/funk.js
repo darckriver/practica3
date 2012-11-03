@@ -50,7 +50,7 @@ function readFiles(){
 				lector.onloadend = function(e){
 					alert(e.target.result);
 				}
-				lector.readAsDataURL(file);
+				alert (lector.readAsText(file));
 			}, function(){
 				pgAlert("No existe el archivo, agrega contenido y luego presiona en Escribir");
 			});
