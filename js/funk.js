@@ -16,7 +16,7 @@ function eventHistory(action){
 }	
 
 function historyEvent(action){
-	navigator.notification.confirm("¿que desea hacer?", function(boton){
+	navigator.notification.confirm(action, function(boton){
 					switch(boton){
 						case '0':
 							navigator.notification.beep(1);
