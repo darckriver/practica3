@@ -18,8 +18,8 @@
 	});// document ready
 	
 function eventHistory(action){
-	$('#historia').append('<li>'+action+'</li>');
-	writeFiles(content);
+	writeFiles(action);
+	$('#historia').append('<li>'+action+'</li>');	
 }	
 
 function writeFiles(content){
