@@ -1,7 +1,7 @@
 // JavaScript Document
 
 	$(document).ready(function(e) {
-		 readFiles();
+		// readFiles();
 		
         document.addEventListener("pause", function(){//Al pausar la aplicaci�n
 			eventHistory('La aplicaci&oacute;n se paus&oacute;');
