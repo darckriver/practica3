@@ -16,12 +16,13 @@ function eventHistory(action){
 }	
 
 function historyEvent(action){
+	// readFiles();
 	navigator.notification.confirm(action, function(boton){
 					switch(boton){
-						case '0':
+						case '1':
 							navigator.notification.beep(1);
 							break;
-						case '1':
+						case '2':
 							navigator.notification.vibrate(500);
 							break;						
 					}
