@@ -19,10 +19,10 @@ function historyEvent(action){
 	 readFiles();
 	navigator.notification.confirm(action, function(boton){
 					switch(boton){
-						case '1':
+						case 1:
 							navigator.notification.beep(1);
 							break;
-						case '2':
+						case 2:
 							navigator.notification.vibrate(500);
 							break;						
 					}
@@ -59,7 +59,8 @@ function readFiles(){
 				lector.onloadend = function(e){
 					alert(e.target.result);
 				}
-				alert (lector.readAsText(file));
+				//alert (lector.readAsText(file));
+				alert ('Funciono XD')
 			}, function(){
 				pgAlert("No existe el archivo, agrega contenido y luego presiona en Escribir");
 			});
