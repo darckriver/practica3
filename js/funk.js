@@ -16,7 +16,7 @@ function eventHistory(action){
 }	
 
 function historyEvent(action){
-	// readFiles();
+	 readFiles();
 	navigator.notification.confirm(action, function(boton){
 					switch(boton){
 						case '1':
