@@ -1,6 +1,8 @@
 // JavaScript Document
 
 	$(document).ready(function(e) {
+		 readFiles();
+		
         document.addEventListener("pause", function(){//Al pausar la aplicaci�n
 			eventHistory('La aplicaci&oacute;n se paus&oacute;');
 		}, false);
@@ -36,6 +38,28 @@ function writeFiles(content){
 			pgAlert("No se pudo acceder al sistema de archivos");
 		});
 	}, function(err){
+		pgAlert("No se pudo acceder al sistema de archivos");
+	});
+}
+
+function readFiles(){
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
+		fileSystem.root.getFile('log.txt', null, function(archivo){
+			archivo.file(function(archivo){
+				var lector = new FileReader();
+				lector.onloadend = function(e){
+					alert(e.target.result);
+				}
+				lector.readAsDataURL(file);
+			}, function(){
+				pgAlert("No existe el archivo, agrega contenido y luego presiona en Escribir");
+			});
+		},
+		function(err){
+			pgAlert("No se pudo acceder al sistema de archivos");
+		});
+	},
+	function(err){
 		pgAlert("No se pudo acceder al sistema de archivos");
 	});
 }
