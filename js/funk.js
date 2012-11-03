@@ -17,4 +17,27 @@
 	
 function eventHistory(action){
 	$('#historia').append('<li>'+action+'</li>');
+	writeFiles(content);
 }	
+
+function writeFiles(content){
+	//var content = $('#fileContent').val();
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
+		fileSystem.root.getFile('log.txt', { create: true }, function(archivo){
+			archivo.createWriter(function(escritor){
+				escritor.onwrite = function(e){
+					pgAlert("El archivo fue escrito Correctamente!");
+				};
+				escritor.write(content);
+			}, function(){
+				pgAlert("No existe el archivo, agrega contenido y luego presiona en Escribir");
+			});
+		}, function(err){
+			pgAlert("No se pudo acceder al sistema de archivos");
+		});
+	}, function(err){
+		pgAlert("No se pudo acceder al sistema de archivos");
+	});
+}
+
+
